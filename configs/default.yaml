@@ -1,0 +1,67 @@
+project:
+  slug: episode-001-world-gdp-shift
+  title: "Where Is the Center of the World Economy Moving?"
+  subtitle: "A Country-Level Dynamic Visualization of Global GDP Shift"
+
+data:
+  raw_dir: data_raw
+  processed_dir: data_processed
+  outputs_dir: outputs
+  start_year: 1960
+  end_year:
+  indicator_code: NY.GDP.MKTP.CD
+  indicator_name: GDP (current US$)
+  world_bank_api_base: https://api.worldbank.org/v2
+  world_bank_per_page: 20000
+  country_boundary_url: https://unpkg.com/three-globe@2.32.0/example/country-polygons/ne_110m_admin_0_countries.geojson
+  raw_gdp_file: world_bank_gdp_raw.json
+  raw_country_file: world_bank_countries_raw.json
+  raw_boundary_file: world_boundaries_raw.geojson
+  raw_download_manifest: manifest.json
+  country_year_file: gdp_country_year.csv
+  clean_country_year_file: gdp_country_year_clean.csv
+  joined_geojson_file: world_gdp_joined.geojson
+  joined_topojson_file: world_gdp_joined.topojson
+
+processing:
+  main_metric: gdp_share
+  comparison_metric: gdp_log
+  top_n_countries: 8
+  highlight_years:
+    - 1960
+    - 1980
+    - 2000
+    - 2020
+  exclude_country_codes:
+    - ATA
+
+animation:
+  frame_duration_ms: 950
+  transition_duration_ms: 700
+  intro_duration_ms: 4000
+  autoplay: true
+
+visualization:
+  year_step: 1
+  map_aspect_ratio: "16:9"
+  available_modes:
+    - gdp_share
+    - gdp_log
+    - gdp_share_change
+  default_mode: gdp_share
+  legend_precision:
+    gdp_share: percent
+    gdp_log: number
+    gdp_share_change: percentage_points
+
+output:
+  gdp_timeseries_file: gdp_timeseries.json
+  render_config_file: render_config.json
+  landscape:
+    width: 1920
+    height: 1080
+  vertical:
+    width: 1080
+    height: 1920
+  fps: 30
+  codec: libx264

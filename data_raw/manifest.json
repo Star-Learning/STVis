@@ -1,0 +1,16 @@
+{
+  "updated_at": "2026-04-19T17:24:42.844142+00:00",
+  "workflow": "world-gdp-shift",
+  "downloads": {
+    "world_bank_gdp": "data_raw\\world_bank_gdp_raw.json",
+    "world_bank_countries": "data_raw\\world_bank_countries_raw.json",
+    "country_year_csv": "data_processed\\gdp_country_year.csv"
+  },
+  "stats": {
+    "indicator_records": 17556,
+    "country_records": 296,
+    "country_year_rows": 14308,
+    "start_year": 1960,
+    "end_year": null
+  }
+}

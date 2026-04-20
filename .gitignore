@@ -1,0 +1,20 @@
+# Outputs (generated)
+outputs/
+dist/
+
+# Dev logs
+viz/vite-dev.log
+viz/vite-dev.err.log
+
+# Dependencies
+viz/node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
